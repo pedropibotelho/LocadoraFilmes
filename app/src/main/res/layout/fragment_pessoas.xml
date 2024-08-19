@@ -48,6 +48,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_pessoa_nome" />
 
+    <com.santalu.maskara.widget.MaskEditText
+        android:id="@+id/edt_pessoa_data"
+        android:layout_width="379dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Data de Nascimento"
+        android:inputType="number"
+        app:maskCharacter="_"
+        app:maskStyle="completable"
+        app:mask="__/__/____"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_pessoa_cpf" />
+
+
 
 
 
