@@ -12,8 +12,7 @@ public class Pessoas {
     private Date dataNascimento;
     private String telefone;
 
-    public Pessoas(int id, String nome, String cpf, Date dataNascimento, String telefone) {
-        this.id = id;
+    public Pessoas(String nome, String cpf, Date dataNascimento, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -60,14 +59,14 @@ public class Pessoas {
         this.telefone = telefone;
     }
 
-    //MANDAR OS VALORES PARA ALGUM LUGAR
+    //MANDAR OS VALORES PARA ALGUM LUGAR, TEM QUE TER OS MSM NOMES DO BANCO
     public ContentValues getContentValues(){
         ContentValues values = new ContentValues();
         if(id > 0)
             values.put("id", id);
         values.put("nome", nome);
         values.put("cpf", cpf);
-        values.put("dataNascimento", dataNascimento.getTime());
+        values.put("data_nascimento", dataNascimento.getTime());
         values.put("telefone", telefone);
         return values;
     }

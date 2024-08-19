@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.pessoas.PessoasFragment">
@@ -25,8 +29,8 @@
 
     <EditText
         android:id="@+id/edt_pessoas_nome"
-        android:layout_width="379dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Nome"
@@ -38,8 +42,8 @@
 
     <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/edt_pessoas_cpf"
-        android:layout_width="379dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="CPF"
@@ -53,8 +57,8 @@
 
     <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/edt_pessoas_data"
-        android:layout_width="379dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Data de Nascimento"
@@ -68,8 +72,8 @@
 
     <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/edt_pessoas_telefone"
-        android:layout_width="379dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Telefone"
@@ -85,13 +89,14 @@
         android:id="@+id/btn_pessoas_cadastrar"
         android:layout_width="123dp"
         android:layout_height="71dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="108dp"
         android:text="Cadastrar"
-        android:textStyle="bold"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_pessoas_telefone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
