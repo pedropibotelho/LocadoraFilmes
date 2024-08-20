@@ -7,8 +7,24 @@
     <string name="nav_header_subtitle">Developed by Pedro Botelho</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    //MENU STRINGS
     <string name="menu_pessoas">Cadastro Pessoas</string>
     <string name="menu_pessoas_relatorio">Relatório Pessoas</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //FRAGMENT PESSOA
+    <string name="fragment_pessoas_title">Cadastro de Pessoas</string>
+    <string name="fragment_pessoas_nome">Nome</string>
+    <string name="fragment_pessoas_cpf">CPF</string>
+    <string name="fragment_pessoas_data">Data de Nascimento</string>
+    <string name="fragment_pessoas_telefone">Telefone</string>
+    <string name="fragment_pessoas_btncadastrar">Cadastrar</string>
+
+    //FRAGMENT CADASTRO PESSOA
+    <string name="fragment_relatorio_pessoas_title">Relatório de Pessoas</string>
+    <string name="fragment_relatorio_pessoas_autonome">Nome da Pessoa a ser Pesquisada</string>
+    <string name="fragment_relatorio_pessoas_btnprocurar">Procurar</string>
+    <string name="fragment_relatorio_pessoas_btnalterar">Alterar</string>
+    <string name="fragment_relatorio_pessoas_btnexcluir">Excluir</string>
+
+
 </resources>
