@@ -22,6 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY," +
                 "nome TEXT," +
                 "genero TEXT," +
+                "diretor TEXT," +
+                "duracao TEXT," +
+                "valor DOUBLE," +
                 "disponivel BOOLEAN)");
 
         //CRIAÇÃO DA TABELA DE PESSOAS

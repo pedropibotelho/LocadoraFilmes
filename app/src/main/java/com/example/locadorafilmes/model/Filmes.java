@@ -6,13 +6,18 @@ public class Filmes {
     private int id = 0;
     private String nome;
     private String genero;
+    private String diretor;
+    private String duracao;
+    private double valor;
     private boolean disponivel;
 
-    public Filmes(int id, String nome, String genero, boolean disponivel) {
-        this.id = id;
+    public Filmes(String nome, String genero, boolean disponivel, String diretor, String duracao, double valor) {
         this.nome = nome;
         this.genero = genero;
         this.disponivel = disponivel;
+        this.diretor = diretor;
+        this.duracao = duracao;
+        this.valor = valor;
     }
 
     public int getId() {
@@ -47,6 +52,30 @@ public class Filmes {
         this.disponivel = disponivel;
     }
 
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     //MANDAR OS VALORES PARA ALGUM LUGAR
     public ContentValues getContentValues(){
         ContentValues values = new ContentValues();
@@ -55,6 +84,9 @@ public class Filmes {
         values.put("nome", nome);
         values.put("genero", genero);
         values.put("disponivel", disponivel);
+        values.put("diretor", diretor);
+        values.put("duracao", duracao);
+        values.put("valor", valor);
         return values;
     }
 }
