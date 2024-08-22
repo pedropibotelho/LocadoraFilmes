@@ -20,6 +20,7 @@ public class PessoasRelatorioFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_pessoas_relatorio, container, false);
 
+        /*
         Button btnProcurar = getActivity().findViewById(R.id.btn_relatorio_pessoas_procurar);
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +44,7 @@ public class PessoasRelatorioFragment extends Fragment {
                 excluir();
             }
         });
-
+        */
         return rootView;
     }
 
