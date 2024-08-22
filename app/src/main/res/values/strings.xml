@@ -10,6 +10,7 @@
     //MENU STRINGS
     <string name="menu_pessoas">Cadastro Pessoas</string>
     <string name="menu_pessoas_relatorio">Relatório Pessoas</string>
+    <string name="menu_filmes">Cadastro Filmes</string>
 
     //FRAGMENT PESSOA
     <string name="fragment_pessoas_title">Cadastro de Pessoas</string>
@@ -25,6 +26,8 @@
     <string name="fragment_relatorio_pessoas_btnprocurar">Procurar</string>
     <string name="fragment_relatorio_pessoas_btnalterar">Alterar</string>
     <string name="fragment_relatorio_pessoas_btnexcluir">Excluir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
