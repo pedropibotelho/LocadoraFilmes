@@ -7,11 +7,11 @@ public class Filmes {
     private String nome;
     private String genero;
     private String duracao;
-    private int classificacaoIndicativa;
+    private String classificacaoIndicativa;
     private double valor;
     private boolean disponivel;
 
-    public Filmes(String nome, String genero, boolean disponivel, int classificacaoIndicativa, String duracao, double valor) {
+    public Filmes(String nome, String genero, boolean disponivel, String classificacaoIndicativa, String duracao, double valor) {
         this.nome = nome;
         this.genero = genero;
         this.disponivel = disponivel;
@@ -52,11 +52,11 @@ public class Filmes {
         this.disponivel = disponivel;
     }
 
-    public int getClassificacaoIndicativa() {
+    public String getClassificacaoIndicativa() {
         return classificacaoIndicativa;
     }
 
-    public void setClassificacaoIndicativa(int classificacaoIndicativa) {
+    public void setClassificacaoIndicativa(String classificacaoIndicativa) {
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
