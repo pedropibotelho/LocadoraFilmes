@@ -43,17 +43,69 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:ems="10"
-            android:hint="@string/fragmento_filmes_genero"
+            android:hint="@string/fragment_filmes_genero"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_filmes_nome" />
 
+        <TextView
+            android:id="@+id/txtview_classificacao_filmes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="236dp"
+            android:text="@string/fragment_filmes_classificacao"
+            android:textAlignment="center"
+            android:textSize="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Spinner
+            android:id="@+id/spinner_filmes_classificacao"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/idades"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtview_classificacao_filmes" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edt_filmes_valor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_valor"
+            android:inputType="number"
+            app:maskCharacter="_"
+            app:maskStyle="normal"
+            app:mask="R$"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_filmes_classificacao" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edt_filmes_duracao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_duracao"
+            android:inputType="number"
+            app:maskCharacter="_"
+            app:maskStyle="completable"
+            app:mask="_:__"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_filmes_valor" />
 
         <Button
-            android:id="@+id/btn_pessoas_cadastrar"
+            android:id="@+id/btn_filmes_cadastrar"
             android:layout_width="123dp"
             android:layout_height="71dp"
             android:layout_marginTop="108dp"
@@ -62,7 +114,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_pessoas_telefone" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_filmes_duracao" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

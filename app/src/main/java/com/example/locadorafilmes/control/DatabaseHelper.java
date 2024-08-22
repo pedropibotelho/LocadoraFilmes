@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY," +
                 "nome TEXT," +
                 "genero TEXT," +
-                "diretor TEXT," +
+                "classificacao_indicativa TEXT," +
                 "duracao TEXT," +
                 "valor DOUBLE," +
                 "disponivel BOOLEAN)");

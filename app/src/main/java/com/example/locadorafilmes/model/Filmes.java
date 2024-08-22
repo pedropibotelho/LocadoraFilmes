@@ -6,16 +6,16 @@ public class Filmes {
     private int id = 0;
     private String nome;
     private String genero;
-    private String diretor;
     private String duracao;
+    private int classificacaoIndicativa;
     private double valor;
     private boolean disponivel;
 
-    public Filmes(String nome, String genero, boolean disponivel, String diretor, String duracao, double valor) {
+    public Filmes(String nome, String genero, boolean disponivel, int classificacaoIndicativa, String duracao, double valor) {
         this.nome = nome;
         this.genero = genero;
         this.disponivel = disponivel;
-        this.diretor = diretor;
+        this.classificacaoIndicativa = classificacaoIndicativa;
         this.duracao = duracao;
         this.valor = valor;
     }
@@ -52,12 +52,12 @@ public class Filmes {
         this.disponivel = disponivel;
     }
 
-    public String getDiretor() {
-        return diretor;
+    public int getClassificacaoIndicativa() {
+        return classificacaoIndicativa;
     }
 
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
+    public void setClassificacaoIndicativa(int classificacaoIndicativa) {
+        this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
     public String getDuracao() {
@@ -84,7 +84,7 @@ public class Filmes {
         values.put("nome", nome);
         values.put("genero", genero);
         values.put("disponivel", disponivel);
-        values.put("diretor", diretor);
+        values.put("classificacao_indicativa", classificacaoIndicativa);
         values.put("duracao", duracao);
         values.put("valor", valor);
         return values;
