@@ -1,5 +1,6 @@
 package com.example.locadorafilmes.ui.pessoas;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +10,14 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.example.locadorafilmes.R;
+import com.example.locadorafilmes.control.DatabaseHelperPessoas;
+
+import java.util.ArrayList;
 
 public class PessoasRelatorioFragment extends Fragment {
 
@@ -62,7 +67,11 @@ public class PessoasRelatorioFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() > 1) {
+                    DatabaseHelperPessoas dbHelper = new DatabaseHelperPessoas(getActivity().getApplicationContext());
+                    ArrayList<String> nomes = dbHelper.atualizacaoLista(s.toString(), textView);
 
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, nomes);
+                    textView.setAdapter(adapter);
                 }
             }
 
