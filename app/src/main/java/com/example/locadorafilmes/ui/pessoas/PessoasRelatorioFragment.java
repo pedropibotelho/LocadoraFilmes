@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.example.locadorafilmes.R;
@@ -20,8 +23,11 @@ public class PessoasRelatorioFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_pessoas_relatorio, container, false);
 
-        /*
-        Button btnProcurar = getActivity().findViewById(R.id.btn_relatorio_pessoas_procurar);
+        AutoCompleteTextView autoCompleteTextView = rootView.findViewById(R.id.autoedt_pessoas_nome);
+        if(autoCompleteTextView !=null)
+            configAutoCompleteTextView(autoCompleteTextView);
+
+        Button btnProcurar = rootView.findViewById(R.id.btn_relatorio_pessoas_procurar);
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,7 +35,7 @@ public class PessoasRelatorioFragment extends Fragment {
             }
         });
 
-        Button btnAlterar = getActivity().findViewById(R.id.btn_relatorio_pessoas_alterar);
+        Button btnAlterar = rootView.findViewById(R.id.btn_relatorio_pessoas_alterar);
         btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,15 +43,32 @@ public class PessoasRelatorioFragment extends Fragment {
             }
         });
 
-        Button btnExcluir = getActivity().findViewById(R.id.btn_relatorio_pessoas_excluir);
+        Button btnExcluir = rootView.findViewById(R.id.btn_relatorio_pessoas_excluir);
         btnExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 excluir();
             }
         });
-        */
+
         return rootView;
+    }
+
+    private void configAutoCompleteTextView(AutoCompleteTextView textView) {
+        textView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 1) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     public void consultar(){

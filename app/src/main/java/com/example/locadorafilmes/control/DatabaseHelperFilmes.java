@@ -18,4 +18,6 @@ public class DatabaseHelperFilmes {
         long newId = db.insert("filmes", null, filmes.getContentValues());
         return  newId;
     }
+
+
 }

@@ -14,13 +14,12 @@
             android:id="@+id/txtview_cadastro_filmes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="24dp"
             android:text="@string/menu_filmes"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,24 +56,24 @@
             android:layout_marginTop="236dp"
             android:text="@string/fragment_filmes_classificacao"
             android:textAlignment="center"
-            android:textSize="17dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.139"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner_filmes_classificacao"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_width="194dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="8dp"
             android:entries="@array/idades"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.121"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtview_classificacao_filmes" />
 
-        <com.santalu.maskara.widget.MaskEditText
+        <EditText
             android:id="@+id/edt_filmes_valor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -82,9 +81,6 @@
             android:ems="10"
             android:hint="@string/fragment_filmes_valor"
             android:inputType="number"
-            app:maskCharacter="_"
-            app:maskStyle="normal"
-            app:mask="R$"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner_filmes_classificacao" />
@@ -108,7 +104,7 @@
             android:id="@+id/btn_filmes_cadastrar"
             android:layout_width="123dp"
             android:layout_height="71dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="24dp"
             android:text="@string/fragment_pessoas_btncadastrar"
             android:textSize="16sp"
             android:textStyle="bold"

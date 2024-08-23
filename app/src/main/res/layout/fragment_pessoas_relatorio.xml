@@ -15,7 +15,7 @@
         android:id="@+id/txtview_relatorio_pessoas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text="@string/fragment_relatorio_pessoas_title"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -43,7 +43,7 @@
         android:id="@+id/btn_relatorio_pessoas_procurar"
         android:layout_width="123dp"
         android:layout_height="71dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="@string/fragment_relatorio_pessoas_btnprocurar"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -55,14 +55,14 @@
         android:id="@+id/edt_relatorio_pessoas_nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="@string/fragment_pessoas_nome"
-        android:inputType="text"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:hint="@string/fragment_pessoas_nome"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_relatorio_pessoas_procurar" />
 
@@ -121,11 +121,12 @@
         android:id="@+id/btn_relatorio_pessoas_alterar"
         android:layout_width="123dp"
         android:layout_height="71dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="@string/fragment_relatorio_pessoas_btnalterar"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_pessoas_telefone" />
 
@@ -133,12 +134,13 @@
         android:id="@+id/btn_relatorio_pessoas_excluir"
         android:layout_width="123dp"
         android:layout_height="71dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="@string/fragment_relatorio_pessoas_btnexcluir"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_relatorio_pessoas_alterar" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_pessoas_telefone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
