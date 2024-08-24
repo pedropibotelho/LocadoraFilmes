@@ -3,7 +3,7 @@ package com.example.locadorafilmes.model;
 import android.content.ContentValues;
 
 public class Filmes {
-    private int id = 0;
+    private int id;
     private String nome;
     private String genero;
     private String duracao;

@@ -6,7 +6,7 @@ import android.content.Context;
 import java.util.Date;
 
 public class Pessoas {
-    private int id = 0;
+    private int id;
     private String nome;
     private String cpf;
     private Date dataNascimento;

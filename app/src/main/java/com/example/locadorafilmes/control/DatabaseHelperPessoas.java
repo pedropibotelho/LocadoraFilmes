@@ -8,7 +8,10 @@ import android.widget.AutoCompleteTextView;
 
 import com.example.locadorafilmes.model.Pessoas;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseHelperPessoas {
     DatabaseHelper dbHelper;
@@ -34,5 +37,25 @@ public class DatabaseHelperPessoas {
         cursor.close();
 
         return names;
+    }
+
+    public Pessoas consultar(String nomePessoa){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Pessoas pessoa = null;
+        Cursor cursor = db.rawQuery("SELECT * FROM pessoas WHERE nome = ?", new String[]{nomePessoa});
+
+        if(cursor.moveToNext()){
+            String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+            String cpf = cursor.getString(cursor.getColumnIndexOrThrow("cpf"));
+            long dataNascimentoTxt = cursor.getLong(cursor.getColumnIndexOrThrow("data_nascimento"));
+            String telefone = cursor.getString(cursor.getColumnIndexOrThrow("telefone"));
+
+            Date dataNascimento = new Date(dataNascimentoTxt);
+
+            pessoa = new Pessoas(nome, cpf, dataNascimento, telefone);
+        }
+        cursor.close();
+
+        return pessoa;
     }
 }

@@ -54,27 +54,30 @@ public class PessoasFragment extends Fragment {
         String dataTxt = edtData.getText().toString();
         String telefoneTxt = edtTelefone.getText().toString();
 
-        //FORMATAR A HORA
+        // FORMATANDO A DATA
         Date dataNascimento;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             dataNascimento = sdf.parse(dataTxt);
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            Toast.makeText(getActivity(), "Erro ao formatar a data", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         Pessoas pessoa = new Pessoas(nomeTxt, cpfTxt, dataNascimento, telefoneTxt);
         DatabaseHelperPessoas dbHelper = new DatabaseHelperPessoas(getActivity().getApplicationContext());
         long resultado = dbHelper.cadastrar(pessoa);
 
-        if(resultado != -1) {
+        if (resultado != -1) {
             Toast.makeText(getActivity(), "Pessoa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-            //LIMPANDO OS EDTS TEXT
+            //LIMPA OS CAMPOS APOS O CADASTRO
             edtNome.setText("");
             edtData.setText("");
             edtCpf.setText("");
             edtTelefone.setText("");
-        }else
+        } else {
             Toast.makeText(getActivity(), "Erro ao cadastrar!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
