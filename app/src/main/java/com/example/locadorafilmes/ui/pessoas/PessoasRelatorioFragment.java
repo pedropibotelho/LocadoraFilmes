@@ -20,8 +20,10 @@ import com.example.locadorafilmes.R;
 import com.example.locadorafilmes.control.DatabaseHelperPessoas;
 import com.example.locadorafilmes.model.Pessoas;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PessoasRelatorioFragment extends Fragment {
 
@@ -64,7 +66,10 @@ public class PessoasRelatorioFragment extends Fragment {
         btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alterar();
+                if(isPreenchido())
+                    alterar();
+                else
+                    Toast.makeText(getActivity(), "Preencha todos os Dados!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -118,7 +123,33 @@ public class PessoasRelatorioFragment extends Fragment {
     }
 
     public void alterar(){
+        EditText edtNome = getActivity().findViewById(R.id.edt_relatorio_pessoas_nome);
+        EditText edtCpf = getActivity().findViewById(R.id.edt_relatorio_pessoas_cpf);
+        EditText edtDataNascimento = getActivity().findViewById(R.id.edt_relatorio_pessoas_data);
+        EditText edtTelefone = getActivity().findViewById(R.id.edt_relatorio_pessoas_telefone);
 
+        String nome = edtNome.getText().toString();
+        String cpf = edtCpf.getText().toString();
+        String dataNascimentoTxt = edtDataNascimento.getText().toString();
+        String telefone = edtTelefone.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataNascimento = null;
+
+        try {
+            dataNascimento = sdf.parse(dataNascimentoTxt);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        Pessoas pessoa = new Pessoas(nome, cpf, dataNascimento, telefone);
+
+        dbHelper = new DatabaseHelperPessoas(getActivity().getApplicationContext());
+        boolean resultado = dbHelper.alterar(pessoa);
+
+        if(resultado)
+            Toast.makeText(getActivity(), "Alteração realizada como Sucesso!", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getActivity(), "Erro", Toast.LENGTH_SHORT).show();
     }
 
     public void excluir(){
@@ -131,10 +162,7 @@ public class PessoasRelatorioFragment extends Fragment {
         EditText edtDataNascimento = getActivity().findViewById(R.id.edt_relatorio_pessoas_data);
         EditText edtTelefone = getActivity().findViewById(R.id.edt_relatorio_pessoas_telefone);
 
-        if(edtNome.equals("")||edtCpf.equals("")||edtTelefone.equals("")||edtDataNascimento.equals(""))
-            return false;
-        else
-            return true;
+        return !edtNome.equals("") && !edtCpf.equals("") && !edtTelefone.equals("") && !edtDataNascimento.equals("");
     }
 
     //DEIXA OS CAMPOS VAZIOS E SEM MANEIRA DE EDITAR
@@ -143,6 +171,8 @@ public class PessoasRelatorioFragment extends Fragment {
         EditText edtCpf = getActivity().findViewById(R.id.edt_relatorio_pessoas_cpf);
         EditText edtDataNascimento = getActivity().findViewById(R.id.edt_relatorio_pessoas_data);
         EditText edtTelefone = getActivity().findViewById(R.id.edt_relatorio_pessoas_telefone);
+        Button btnAlterar = getActivity().findViewById(R.id.btn_relatorio_pessoas_alterar);
+        Button btnExcluir = getActivity().findViewById(R.id.btn_relatorio_pessoas_excluir);
 
         edtNome.setText("");
         edtCpf.setText("");
@@ -157,6 +187,11 @@ public class PessoasRelatorioFragment extends Fragment {
         edtCpf.setFocusableInTouchMode(false);
         edtDataNascimento.setFocusableInTouchMode(false);
         edtTelefone.setFocusableInTouchMode(false);
+
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+
+
     }
 
     //LIBERA OS CAMPOS PARA EDIÇÃO
@@ -165,6 +200,8 @@ public class PessoasRelatorioFragment extends Fragment {
         EditText edtCpf = getActivity().findViewById(R.id.edt_relatorio_pessoas_cpf);
         EditText edtDataNascimento = getActivity().findViewById(R.id.edt_relatorio_pessoas_data);
         EditText edtTelefone = getActivity().findViewById(R.id.edt_relatorio_pessoas_telefone);
+        Button btnAlterar = getActivity().findViewById(R.id.btn_relatorio_pessoas_alterar);
+        Button btnExcluir = getActivity().findViewById(R.id.btn_relatorio_pessoas_excluir);
 
         edtNome.setFocusable(true);
         edtCpf.setFocusable(true);
@@ -174,5 +211,9 @@ public class PessoasRelatorioFragment extends Fragment {
         edtCpf.setFocusableInTouchMode(true);
         edtDataNascimento.setFocusableInTouchMode(true);
         edtTelefone.setFocusableInTouchMode(true);
+
+        btnAlterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+
     }
 }

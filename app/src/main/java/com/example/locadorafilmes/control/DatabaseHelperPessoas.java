@@ -1,6 +1,7 @@
 package com.example.locadorafilmes.control;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -57,5 +58,16 @@ public class DatabaseHelperPessoas {
         cursor.close();
 
         return pessoa;
+    }
+
+    public boolean alterar(Pessoas pessoa){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = pessoa.getContentValues();
+
+        String whereClause = "cpf = ?";
+        String[] whereArgs = {pessoa.getCpf()};
+
+        int rowsAffected = db.update("pessoas", values, whereClause, whereArgs);
+        return rowsAffected > 0;
     }
 }
