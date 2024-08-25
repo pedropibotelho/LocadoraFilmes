@@ -70,4 +70,14 @@ public class DatabaseHelperPessoas {
         int rowsAffected = db.update("pessoas", values, whereClause, whereArgs);
         return rowsAffected > 0;
     }
+
+    public long excluir(String nome){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String whereClause = "nome = ?";
+        String[] whereArgs = {nome};
+
+        long newId = db.delete("pessoas", whereClause, whereArgs);
+        return newId;
+    }
 }

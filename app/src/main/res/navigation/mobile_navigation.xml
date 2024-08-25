@@ -24,4 +24,12 @@
         android:label="@string/menu_filmes"
         tools:layout="@layout/fragment_filmes"
         />
+
+    <fragment
+        android:id="@+id/nav_filmes_relatorio"
+        android:name="com.example.locadorafilmes.ui.filmes.FilmesRelatorioFragment"
+        android:label="@string/fragment_relatorio_filmes_title"
+        tools:layout="@layout/fragment_filmes_relatorio"
+        />
+
 </navigation>

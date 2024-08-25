@@ -19,5 +19,11 @@
             android:icon="@drawable/ic_menu_filmes"
             android:title="@string/menu_filmes"
             />
+
+        <item
+            android:id="@+id/nav_filmes_relatorio"
+            android:icon="@drawable/ic_filmes_relatorio"
+            android:title="@string/fragment_relatorio_filmes_title"
+            />
     </group>
 </menu>

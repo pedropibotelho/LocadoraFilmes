@@ -20,7 +20,7 @@
     <string name="fragment_pessoas_telefone">Telefone</string>
     <string name="fragment_pessoas_btncadastrar">Cadastrar</string>
 
-    //FRAGMENT CADASTRO PESSOA
+    //FRAGMENT RELATORIO PESSOA
     <string name="fragment_relatorio_pessoas_title">Relatório de Pessoas</string>
     <string name="fragment_relatorio_pessoas_autonome">Nome da Pessoa a ser Pesquisada</string>
     <string name="fragment_relatorio_pessoas_btnprocurar">Procurar</string>
@@ -32,6 +32,9 @@
     <string name="fragment_filmes_classificacao">Classificação Indicativa:</string>
     <string name="fragment_filmes_valor">Valor</string>
     <string name="fragment_filmes_duracao">Duração (em horas)</string>
+
+    //FRAGMENT RELATORIO FILME
+    <string name="fragment_relatorio_filmes_title">Relatório de Filmes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

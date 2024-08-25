@@ -39,6 +39,7 @@ public class PessoasRelatorioFragment extends Fragment {
         if(autoCompleteTextView !=null)
             configAutoCompleteTextView(autoCompleteTextView);
 
+        //BOTÃO PARA CONSULTA
         Button btnProcurar = rootView.findViewById(R.id.btn_relatorio_pessoas_procurar);
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,7 @@ public class PessoasRelatorioFragment extends Fragment {
             }
         });
 
+        //BOTÃO PARA ALTERAR
         Button btnAlterar = rootView.findViewById(R.id.btn_relatorio_pessoas_alterar);
         btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +75,7 @@ public class PessoasRelatorioFragment extends Fragment {
             }
         });
 
+        //BOTÃO PARA EXCLUIR
         Button btnExcluir = rootView.findViewById(R.id.btn_relatorio_pessoas_excluir);
         btnExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,6 +156,17 @@ public class PessoasRelatorioFragment extends Fragment {
     }
 
     public void excluir(){
+        AutoCompleteTextView autoNome = getActivity().findViewById(R.id.autoedt_pessoas_nome);
+        String autoNomeTxt = autoNome.getText().toString();
+
+        dbHelper = new DatabaseHelperPessoas(getActivity().getApplicationContext());
+        long resultado = dbHelper.excluir(autoNomeTxt);
+
+        if(resultado != -1){
+            Toast.makeText(getActivity(), "Pessoa Excluída com Sucesso!", Toast.LENGTH_SHORT).show();
+            limparCampos();
+        }else
+            Toast.makeText(getActivity(), "Erro na exclusão!", Toast.LENGTH_SHORT).show();
 
     }
 
