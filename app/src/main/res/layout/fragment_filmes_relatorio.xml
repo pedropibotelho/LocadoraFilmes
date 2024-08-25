@@ -1,14 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.filmes.FilmesRelatorioFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.filmes.FilmesRelatorioFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/txtview_relatorio_filmes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fragment_relatorio_filmes_title"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoedt_filmes_nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="@string/fragment_relatorio_filmes_autonome"
+            android:inputType="text"
+            android:completionThreshold="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtview_relatorio_filmes" />
+
+        <Button
+            android:id="@+id/btn_relatorio_filmes_procurar"
+            android:layout_width="123dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/fragment_relatorio_pessoas_btnprocurar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/autoedt_filmes_nome" />
+
+        <EditText
+            android:id="@+id/edt_relatorio_filmes_nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="@string/fragment_pessoas_nome"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_relatorio_filmes_procurar" />
+
+        <EditText
+            android:id="@+id/edt_relatorio_filmes_genero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_genero"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_nome" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edt_relatorio_filmes_duracao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_duracao"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:inputType="number"
+            app:maskCharacter="_"
+            app:maskStyle="completable"
+            app:mask="_:__"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_genero" />
+
+        <EditText
+            android:id="@+id/edt_relatorio_filmes_classificacao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_classificacao"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_duracao" />
+
+        <EditText
+            android:id="@+id/edt_relatorio_filme_valor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/fragment_filmes_valor"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_classificacao" />
+
+        <Switch
+            android:id="@+id/switch_filmes_relatorio_disponivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/fragment_relatorio_filmes_disponivel"
+            android:enabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filme_valor" />
+
+        <Button
+            android:id="@+id/btn_relatorio_filmes_alterar"
+            android:layout_width="123dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="12dp"
+            android:enabled="false"
+            android:text="@string/fragment_relatorio_pessoas_btnalterar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_filmes_relatorio_disponivel" />
+
+        <Button
+            android:id="@+id/btn_relatorio_filmes_excluir"
+            android:layout_width="123dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="12dp"
+            android:enabled="false"
+            android:text="@string/fragment_relatorio_pessoas_btnexcluir"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.927"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_filmes_relatorio_disponivel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
