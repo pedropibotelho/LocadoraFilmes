@@ -96,16 +96,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_genero" />
 
-        <EditText
-            android:id="@+id/edt_relatorio_filmes_classificacao"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+        <Spinner
+            android:id="@+id/spinner_relatorio_filmes_classificacao"
+            android:layout_width="199dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="4dp"
+            android:clickable="false"
             android:ems="10"
+            android:entries="@array/idades"
             android:hint="@string/fragment_filmes_classificacao"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_duracao" />
 
@@ -121,7 +122,7 @@
             android:focusableInTouchMode="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_classificacao" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_relatorio_filmes_classificacao" />
 
         <Switch
             android:id="@+id/switch_filmes_relatorio_disponivel"
