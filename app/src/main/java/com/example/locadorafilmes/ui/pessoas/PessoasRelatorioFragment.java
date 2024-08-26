@@ -68,8 +68,9 @@ public class PessoasRelatorioFragment extends Fragment {
         btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String nomePessoa = autoCompleteTextView.getText().toString();
                 if(isPreenchido())
-                    alterar();
+                    alterar(nomePessoa);
                 else
                     Toast.makeText(getActivity(), "Preencha todos os Dados!", Toast.LENGTH_SHORT).show();
             }
@@ -125,7 +126,7 @@ public class PessoasRelatorioFragment extends Fragment {
 
     }
 
-    public void alterar(){
+    public void alterar(String nomePessoa){
         EditText edtNome = getActivity().findViewById(R.id.edt_relatorio_pessoas_nome);
         EditText edtCpf = getActivity().findViewById(R.id.edt_relatorio_pessoas_cpf);
         EditText edtDataNascimento = getActivity().findViewById(R.id.edt_relatorio_pessoas_data);
@@ -147,7 +148,7 @@ public class PessoasRelatorioFragment extends Fragment {
         Pessoas pessoa = new Pessoas(nome, cpf, dataNascimento, telefone);
 
         dbHelper = new DatabaseHelperPessoas(getActivity().getApplicationContext());
-        boolean resultado = dbHelper.alterar(pessoa);
+        boolean resultado = dbHelper.alterar(pessoa, nomePessoa);
 
         if(resultado)
             Toast.makeText(getActivity(), "Alteração realizada como Sucesso!", Toast.LENGTH_SHORT).show();

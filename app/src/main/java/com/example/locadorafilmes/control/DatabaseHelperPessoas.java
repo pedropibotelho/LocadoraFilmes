@@ -60,12 +60,12 @@ public class DatabaseHelperPessoas {
         return pessoa;
     }
 
-    public boolean alterar(Pessoas pessoa){
+    public boolean alterar(Pessoas pessoa, String nomePessoa){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = pessoa.getContentValues();
 
-        String whereClause = "cpf = ?";
-        String[] whereArgs = {pessoa.getCpf()};
+        String whereClause = "nome = ?";
+        String[] whereArgs = {nomePessoa};
 
         int rowsAffected = db.update("pessoas", values, whereClause, whereArgs);
         return rowsAffected > 0;
