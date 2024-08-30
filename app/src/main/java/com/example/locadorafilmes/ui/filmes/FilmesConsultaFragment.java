@@ -19,21 +19,20 @@ import android.widget.Toast;
 
 import com.example.locadorafilmes.R;
 import com.example.locadorafilmes.control.DatabaseHelperFilmes;
-import com.example.locadorafilmes.control.DatabaseHelperPessoas;
 import com.example.locadorafilmes.model.Filmes;
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class FilmesRelatorioFragment extends Fragment {
+public class FilmesConsultaFragment extends Fragment {
 
     private DatabaseHelperFilmes dbHelper;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.fragment_filmes_relatorio, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_filmes_consulta, container, false);
         Spinner spinner = rootView.findViewById(R.id.spinner_relatorio_filmes_classificacao);
         spinner.setEnabled(false);
 

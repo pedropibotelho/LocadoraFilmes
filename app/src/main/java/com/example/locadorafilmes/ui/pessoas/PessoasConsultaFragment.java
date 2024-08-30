@@ -1,6 +1,5 @@
 package com.example.locadorafilmes.ui.pessoas;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PessoasRelatorioFragment extends Fragment {
+public class PessoasConsultaFragment extends Fragment {
 
     private DatabaseHelperPessoas dbHelper;
 
@@ -33,7 +32,7 @@ public class PessoasRelatorioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_pessoas_relatorio, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pessoas_consulta, container, false);
 
         AutoCompleteTextView autoCompleteTextView = rootView.findViewById(R.id.autoedt_pessoas_nome);
         if(autoCompleteTextView !=null)

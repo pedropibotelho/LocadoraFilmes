@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_pessoas"/>
 
     <fragment
-        android:id="@+id/nav_pessoas_relatorio"
-        android:name="com.example.locadorafilmes.ui.pessoas.PessoasRelatorioFragment"
+        android:id="@+id/nav_pessoas_consulta"
+        android:name="com.example.locadorafilmes.ui.pessoas.PessoasConsultaFragment"
         android:label="Relatório Pessoas"
-        tools:layout="@layout/fragment_pessoas_relatorio"
+        tools:layout="@layout/fragment_pessoas_consulta"
         />
 
     <fragment
@@ -26,10 +26,10 @@
         />
 
     <fragment
-        android:id="@+id/nav_filmes_relatorio"
-        android:name="com.example.locadorafilmes.ui.filmes.FilmesRelatorioFragment"
-        android:label="@string/fragment_relatorio_filmes_title"
-        tools:layout="@layout/fragment_filmes_relatorio"
+        android:id="@+id/nav_filmes_consulta"
+        android:name="com.example.locadorafilmes.ui.filmes.FilmesConsultaFragment"
+        android:label="@string/fragment_consulta_filmes_title"
+        tools:layout="@layout/fragment_filmes_consulta"
         />
 
 </navigation>

@@ -9,7 +9,7 @@
 
     //MENU STRINGS
     <string name="menu_pessoas">Cadastro Pessoas</string>
-    <string name="menu_pessoas_relatorio">Relatório Pessoas</string>
+    <string name="menu_pessoas_consulta">Consulta Pessoas</string>
     <string name="menu_filmes">Cadastro Filmes</string>
 
     //FRAGMENT PESSOA
@@ -20,12 +20,12 @@
     <string name="fragment_pessoas_telefone">Telefone</string>
     <string name="fragment_pessoas_btncadastrar">Cadastrar</string>
 
-    //FRAGMENT RELATORIO PESSOA
-    <string name="fragment_relatorio_pessoas_title">Relatório de Pessoas</string>
-    <string name="fragment_relatorio_pessoas_autonome">Nome da Pessoa a ser Pesquisada</string>
-    <string name="fragment_relatorio_pessoas_btnprocurar">Procurar</string>
-    <string name="fragment_relatorio_pessoas_btnalterar">Alterar</string>
-    <string name="fragment_relatorio_pessoas_btnexcluir">Excluir</string>
+    //FRAGMENT CONSULTA PESSOA
+    <string name="fragment_consulta_pessoas_title">Consulta de Pessoas</string>
+    <string name="fragment_consulta_pessoas_autonome">Nome da Pessoa a ser Pesquisada</string>
+    <string name="fragment_consulta_pessoas_btnprocurar">Procurar</string>
+    <string name="fragment_consulta_pessoas_btnalterar">Alterar</string>
+    <string name="fragment_consulta_pessoas_btnexcluir">Excluir</string>
 
     //FRAGMENT FILME
     <string name="fragment_filmes_genero">Gênero</string>
@@ -33,10 +33,10 @@
     <string name="fragment_filmes_valor">Valor</string>
     <string name="fragment_filmes_duracao">Duração (em horas)</string>
 
-    //FRAGMENT RELATORIO FILME
-    <string name="fragment_relatorio_filmes_title">Relatório de Filmes</string>
-    <string name="fragment_relatorio_filmes_autonome">Nome do Filme a ser Pesquisado</string>
-    <string name="fragment_relatorio_filmes_disponivel">Filme Disponível</string>
+    //FRAGMENT CONSULTA FILME
+    <string name="fragment_consulta_filmes_title">Consulta de Filmes</string>
+    <string name="fragment_consulta_filmes_autonome">Nome do Filme a ser Pesquisado</string>
+    <string name="fragment_consulta_filmes_disponivel">Filme Disponível</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
