@@ -102,6 +102,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="4dp"
             android:clickable="false"
+            android:enabled="false"
             android:ems="10"
             android:entries="@array/idades"
             android:hint="@string/fragment_filmes_classificacao"
@@ -134,7 +135,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filme_valor" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filme_valor"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <Button
             android:id="@+id/btn_relatorio_filmes_alterar"

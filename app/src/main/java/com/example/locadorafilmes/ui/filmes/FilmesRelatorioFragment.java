@@ -24,6 +24,7 @@ import com.example.locadorafilmes.model.Filmes;
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FilmesRelatorioFragment extends Fragment {
 
@@ -33,6 +34,8 @@ public class FilmesRelatorioFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_filmes_relatorio, container, false);
+        Spinner spinner = rootView.findViewById(R.id.spinner_relatorio_filmes_classificacao);
+        spinner.setEnabled(false);
 
         AutoCompleteTextView autoCompleteTextView = rootView.findViewById(R.id.autoedt_filmes_nome);
         if(autoCompleteTextView != null)
@@ -74,6 +77,16 @@ public class FilmesRelatorioFragment extends Fragment {
             }
         });
 
+        //BOTAO PARA EXCLUIR
+        Button btnExcluir = rootView.findViewById(R.id.btn_relatorio_filmes_excluir);
+        btnExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nomeFilme = autoCompleteTextView.getText().toString();
+                excluir(nomeFilme);
+            }
+        });
+
 
         return rootView;
     }
@@ -102,14 +115,20 @@ public class FilmesRelatorioFragment extends Fragment {
     public void consultar(Filmes filme){
         EditText edtNome = getActivity().findViewById(R.id.edt_relatorio_filmes_nome);
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
-        EditText edtClassificacao = getActivity().findViewById(R.id.edt_relatorio_filmes_classificacao);
+        Spinner spinnerClassificacao = getActivity().findViewById(R.id.spinner_relatorio_filmes_classificacao);
         MaskEditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
         EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
         Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
 
         edtNome.setText(filme.getNome());
         edtGenero.setText(filme.getGenero());
-        edtClassificacao.setText(filme.getClassificacaoIndicativa());
+
+        String classificacaoFilme = filme.getClassificacaoIndicativa();
+        String[] classificacoes = getResources().getStringArray(R.array.idades);
+        int i = Arrays.asList(classificacoes).indexOf(classificacaoFilme);
+        if(i>=0)
+            spinnerClassificacao.setSelection(i);
+
         edtDuracao.setText(filme.getDuracao());
         edtValor.setText(String.valueOf(filme.getValor()));
         switchDisponivel.setChecked(filme.isDisponivel());
@@ -131,10 +150,29 @@ public class FilmesRelatorioFragment extends Fragment {
         String nome = edtNome.getText().toString();
         String genero = edtGenero.getText().toString();
         String duracao = edtDuracao.getText().toString();
-        String classificacao = edtClassificacao.getText().toString();
+        String classificacao = spinnerClassificacao.getSelectedItem().toString();
         Double valor = Double.parseDouble(edtValor.getText().toString());
         Boolean disponivel = swicthDisponivel.isChecked();
 
+        Filmes filme = new Filmes(nome, genero, disponivel, classificacao, duracao, valor);
+        boolean resultado = dbHelper.alterar(nomeFilme, filme);
+
+        if(resultado)
+            Toast.makeText(getActivity(), "Alteração realizada como Sucesso!", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getActivity(), "Erro", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void excluir(String nomeFilme){
+        dbHelper = new DatabaseHelperFilmes(getActivity().getApplicationContext());
+        long resultado = dbHelper.excluir(nomeFilme);
+
+        if(resultado != -1){
+            Toast.makeText(getActivity(), "Filme Excluído com Sucesso!", Toast.LENGTH_SHORT).show();
+            limparCampos();
+        }else
+            Toast.makeText(getActivity(), "Erro", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -142,10 +180,9 @@ public class FilmesRelatorioFragment extends Fragment {
         EditText edtNome = getActivity().findViewById(R.id.edt_relatorio_filmes_nome);
         EditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
         EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
-        EditText edtClassificacao = getActivity().findViewById(R.id.edt_relatorio_filmes_classificacao);
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
 
-        return !edtNome.equals("") && !edtDuracao.equals("") && !edtValor.equals("") && !edtClassificacao.equals("") && !edtGenero.equals("");
+        return !edtNome.equals("") && !edtDuracao.equals("") && !edtValor.equals("") && !edtGenero.equals("");
     }
 
     //DEIXA OS CAMPOS VAZIOS E SEM MANEIRA DE EDITAR
@@ -161,8 +198,9 @@ public class FilmesRelatorioFragment extends Fragment {
 
         edtNome.setText("");
         edtGenero.setText("");
-        spinnerClassificacao.setSelection(1);
+        spinnerClassificacao.setSelection(0);
         edtDuracao.setText("");
+        edtValor.setText("");
 
         edtNome.setFocusable(false);
         edtGenero.setFocusable(false);
@@ -173,6 +211,7 @@ public class FilmesRelatorioFragment extends Fragment {
         edtValor.setFocusable(false);
         edtValor.setFocusableInTouchMode(false);
         spinnerClassificacao.setClickable(false);
+        spinnerClassificacao.setEnabled(false);
         switchDisponivel.setEnabled(false);
 
         btnAlterar.setEnabled(false);
@@ -202,6 +241,7 @@ public class FilmesRelatorioFragment extends Fragment {
         edtValor.setFocusableInTouchMode(true);
         switchDisponivel.setEnabled(true);
         spinnerClassificacao.setClickable(true);
+        spinnerClassificacao.setEnabled(true);
 
         btnAlterar.setEnabled(true);
         btnExcluir.setEnabled(true);

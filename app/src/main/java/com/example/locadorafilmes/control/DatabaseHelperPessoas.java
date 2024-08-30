@@ -67,8 +67,8 @@ public class DatabaseHelperPessoas {
         String whereClause = "nome = ?";
         String[] whereArgs = {nomePessoa};
 
-        int rowsAffected = db.update("pessoas", values, whereClause, whereArgs);
-        return rowsAffected > 0;
+        int resultado = db.update("pessoas", values, whereClause, whereArgs);
+        return resultado > 0;
     }
 
     public long excluir(String nome){

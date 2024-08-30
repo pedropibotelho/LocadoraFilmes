@@ -1,6 +1,7 @@
 package com.example.locadorafilmes.control;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -61,4 +62,26 @@ public class DatabaseHelperFilmes {
         return filme;
     }
 
+    public boolean alterar(String nomeFilme, Filmes filme){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = filme.getContentValues();
+
+        String whereCause = "nome = ?";
+        String[] whereArgs = {nomeFilme};
+
+        int resultado = db.update("filmes", values, whereCause, whereArgs);
+
+        return resultado > 0;
+    }
+
+    public long excluir(String nome){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String whereClause = "nome = ?";
+        String[] whereArgs = {nome};
+
+        long newId = db.delete("filmes", whereClause, whereArgs);
+        return newId;
+
+    }
 }
