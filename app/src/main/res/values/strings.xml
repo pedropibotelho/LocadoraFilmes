@@ -11,6 +11,7 @@
     <string name="menu_pessoas">Cadastro Pessoas</string>
     <string name="menu_pessoas_consulta">Consulta Pessoas</string>
     <string name="menu_filmes">Cadastro Filmes</string>
+    <string name="menu_locacao">Cadastro Locação</string>
 
     //FRAGMENT PESSOA
     <string name="fragment_pessoas_title">Cadastro de Pessoas</string>
@@ -39,6 +40,9 @@
     <string name="fragment_consulta_filmes_disponivel">Filme Disponível</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //FRAGMENT LOCACAO
+
 
 
 </resources>

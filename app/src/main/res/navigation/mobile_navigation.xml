@@ -32,4 +32,11 @@
         tools:layout="@layout/fragment_filmes_consulta"
         />
 
+    <fragment
+        android:id="@+id/nav_locacao"
+        android:name="com.example.locadorafilmes.ui.locacao.LocacaoFragment"
+        android:label="@string/menu_locacao"
+        tools:layout="@layout/fragment_locacao"
+        />
+
 </navigation>
