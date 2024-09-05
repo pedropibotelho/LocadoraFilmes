@@ -12,8 +12,7 @@ public class Locacao {
     private Date dataDevolucao;
     private double valor;
 
-    public Locacao(int id, Pessoas pessoa, Filmes filme, Date dataAluga, Date dataDevolucao, double valor) {
-        this.id = id;
+    public Locacao(Pessoas pessoa, Filmes filme, Date dataAluga, Date dataDevolucao, double valor) {
         this.pessoa = pessoa;
         this.filme = filme;
         this.dataAluga = dataAluga;

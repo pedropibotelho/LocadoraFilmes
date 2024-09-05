@@ -20,6 +20,8 @@ public class Filmes {
         this.valor = valor;
     }
 
+    public Filmes(){}
+
     public int getId() {
         return id;
     }

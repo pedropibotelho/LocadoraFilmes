@@ -19,6 +19,10 @@ public class Pessoas {
         this.telefone = telefone;
     }
 
+    public Pessoas(){
+
+    }
+
     public int getId() {
         return id;
     }
