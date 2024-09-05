@@ -49,14 +49,13 @@ public class DatabaseHelperFilmes {
             String genero = cursor.getString(cursor.getColumnIndexOrThrow("genero"));
             String duracao = cursor.getString(cursor.getColumnIndexOrThrow("duracao"));
             String classificacao = cursor.getString(cursor.getColumnIndexOrThrow("classificacao_indicativa"));
-            double valor = cursor.getDouble(cursor.getColumnIndexOrThrow("valor"));
 
             // Aqui estamos pegando o valor do campo `disponivel` que foi armazenado como 0 ou 1 no banco de dados
             int disponivelInt = cursor.getInt(cursor.getColumnIndexOrThrow("disponivel"));
             boolean disponivel = disponivelInt == 1;
 
             // Cria uma nova instância do objeto `Filmes` com os dados obtidos
-            filme = new Filmes(nome, genero, disponivel, classificacao, duracao, valor );
+            filme = new Filmes(nome, genero, disponivel, classificacao, duracao);
         }
         cursor.close();
         return filme;

@@ -1,5 +1,6 @@
 package com.example.locadorafilmes.ui.filmes;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -116,8 +117,7 @@ public class FilmesConsultaFragment extends Fragment {
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
         Spinner spinnerClassificacao = getActivity().findViewById(R.id.spinner_relatorio_filmes_classificacao);
         MaskEditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
-        EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
-        Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
 
         edtNome.setText(filme.getNome());
         edtGenero.setText(filme.getGenero());
@@ -129,7 +129,6 @@ public class FilmesConsultaFragment extends Fragment {
             spinnerClassificacao.setSelection(i);
 
         edtDuracao.setText(filme.getDuracao());
-        edtValor.setText(String.valueOf(filme.getValor()));
         switchDisponivel.setChecked(filme.isDisponivel());
 
         liberarCampos();
@@ -142,18 +141,16 @@ public class FilmesConsultaFragment extends Fragment {
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
         MaskEditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
         Spinner spinnerClassificacao = getActivity().findViewById(R.id.spinner_relatorio_filmes_classificacao);
-        EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
-        Switch swicthDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch swicthDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
 
 
         String nome = edtNome.getText().toString();
         String genero = edtGenero.getText().toString();
         String duracao = edtDuracao.getText().toString();
         String classificacao = spinnerClassificacao.getSelectedItem().toString();
-        Double valor = Double.parseDouble(edtValor.getText().toString());
         Boolean disponivel = swicthDisponivel.isChecked();
 
-        Filmes filme = new Filmes(nome, genero, disponivel, classificacao, duracao, valor);
+        Filmes filme = new Filmes(nome, genero, disponivel, classificacao, duracao);
         boolean resultado = dbHelper.alterar(nomeFilme, filme);
 
         if(resultado)
@@ -178,10 +175,9 @@ public class FilmesConsultaFragment extends Fragment {
     private boolean isPreenchido(){
         EditText edtNome = getActivity().findViewById(R.id.edt_relatorio_filmes_nome);
         EditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
-        EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
 
-        return !edtNome.equals("") && !edtDuracao.equals("") && !edtValor.equals("") && !edtGenero.equals("");
+        return !edtNome.equals("") && !edtDuracao.equals("") && !edtGenero.equals("");
     }
 
     //DEIXA OS CAMPOS VAZIOS E SEM MANEIRA DE EDITAR
@@ -190,8 +186,7 @@ public class FilmesConsultaFragment extends Fragment {
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
         Spinner spinnerClassificacao = getActivity().findViewById(R.id.spinner_relatorio_filmes_classificacao);
         MaskEditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
-        EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
-        Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
         Button btnAlterar = getActivity().findViewById(R.id.btn_relatorio_filmes_alterar);
         Button btnExcluir = getActivity().findViewById(R.id.btn_relatorio_filmes_excluir);
 
@@ -199,7 +194,6 @@ public class FilmesConsultaFragment extends Fragment {
         edtGenero.setText("");
         spinnerClassificacao.setSelection(0);
         edtDuracao.setText("");
-        edtValor.setText("");
 
         edtNome.setFocusable(false);
         edtGenero.setFocusable(false);
@@ -207,8 +201,6 @@ public class FilmesConsultaFragment extends Fragment {
         edtNome.setFocusableInTouchMode(false);
         edtGenero.setFocusableInTouchMode(false);
         edtDuracao.setFocusableInTouchMode(false);
-        edtValor.setFocusable(false);
-        edtValor.setFocusableInTouchMode(false);
         spinnerClassificacao.setClickable(false);
         spinnerClassificacao.setEnabled(false);
         switchDisponivel.setEnabled(false);
@@ -225,8 +217,7 @@ public class FilmesConsultaFragment extends Fragment {
         EditText edtGenero = getActivity().findViewById(R.id.edt_relatorio_filmes_genero);
         Spinner spinnerClassificacao = getActivity().findViewById(R.id.spinner_relatorio_filmes_classificacao);
         MaskEditText edtDuracao = getActivity().findViewById(R.id.edt_relatorio_filmes_duracao);
-        EditText edtValor = getActivity().findViewById(R.id.edt_relatorio_filme_valor);
-        Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch switchDisponivel = getActivity().findViewById(R.id.switch_filmes_relatorio_disponivel);
         Button btnAlterar = getActivity().findViewById(R.id.btn_relatorio_filmes_alterar);
         Button btnExcluir = getActivity().findViewById(R.id.btn_relatorio_filmes_excluir);
 
@@ -236,8 +227,6 @@ public class FilmesConsultaFragment extends Fragment {
         edtNome.setFocusableInTouchMode(true);
         edtGenero.setFocusableInTouchMode(true);
         edtDuracao.setFocusableInTouchMode(true);
-        edtValor.setFocusable(true);
-        edtValor.setFocusableInTouchMode(true);
         switchDisponivel.setEnabled(true);
         spinnerClassificacao.setClickable(true);
         spinnerClassificacao.setEnabled(true);

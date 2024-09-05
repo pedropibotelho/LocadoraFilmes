@@ -73,17 +73,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtview_classificacao_filmes" />
 
-        <EditText
-            android:id="@+id/edt_filmes_valor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="@string/fragment_filmes_valor"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_filmes_classificacao" />
 
         <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edt_filmes_duracao"
@@ -98,7 +87,7 @@
             app:mask="_:__"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_filmes_valor" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_filmes_classificacao" />
 
         <Button
             android:id="@+id/btn_filmes_cadastrar"

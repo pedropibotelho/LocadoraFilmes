@@ -59,8 +59,6 @@ public class LocacaoFragment extends Fragment {
             }
         });
 
-
-
         return rootView;
     }
 
@@ -93,8 +91,8 @@ public class LocacaoFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() > 1) {
-                    dbHelperFilmes = new DatabaseHelperFilmes(getActivity().getApplicationContext());
-                    ArrayList<String> nomes = dbHelperFilmes.atualizacaoLista(s.toString(), textView);
+                    dbHelper= new DatabaseHelperLocacao(getActivity().getApplicationContext());
+                    ArrayList<String> nomes = dbHelper.atualizacaoLista(s.toString(), textView);
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, nomes);
                     textView.setAdapter(adapter);
@@ -135,7 +133,17 @@ public class LocacaoFragment extends Fragment {
 
         Locacao locacao = new Locacao(pessoa, filme, dataAluga, dataDevolucao, valor);
 
+        long resultado = dbHelper.inserir(locacao);
 
+        if(resultado != -1){
+            Toast.makeText(getActivity(), "Locação Cadastrada com Sucesso!", Toast.LENGTH_SHORT).show();
+            edtNomePessoa.setText("");
+            edtNomeFilme.setText("");
+            edtDataAluga.setText("");
+            edtDataDevolucao.setText("");
+            edtValor.setText("");
+        }else
+            Toast.makeText(getActivity(), "Erro ao Cadastrar!", Toast.LENGTH_SHORT).show();
     }
 
 

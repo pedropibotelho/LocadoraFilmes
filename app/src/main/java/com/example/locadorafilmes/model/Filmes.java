@@ -8,16 +8,14 @@ public class Filmes {
     private String genero;
     private String duracao;
     private String classificacaoIndicativa;
-    private double valor;
     private boolean disponivel;
 
-    public Filmes(String nome, String genero, boolean disponivel, String classificacaoIndicativa, String duracao, double valor) {
+    public Filmes(String nome, String genero, boolean disponivel, String classificacaoIndicativa, String duracao) {
         this.nome = nome;
         this.genero = genero;
         this.disponivel = disponivel;
         this.classificacaoIndicativa = classificacaoIndicativa;
         this.duracao = duracao;
-        this.valor = valor;
     }
 
     public Filmes(){}
@@ -70,14 +68,6 @@ public class Filmes {
         this.duracao = duracao;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     //MANDAR OS VALORES PARA ALGUM LUGAR
     public ContentValues getContentValues(){
         ContentValues values = new ContentValues();
@@ -88,7 +78,6 @@ public class Filmes {
         values.put("disponivel", disponivel);
         values.put("classificacao_indicativa", classificacaoIndicativa);
         values.put("duracao", duracao);
-        values.put("valor", valor);
         return values;
     }
 }

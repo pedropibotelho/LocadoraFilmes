@@ -29,6 +29,18 @@ public class DatabaseHelperLocacao {
         return newId;
     }
 
+    @SuppressLint("Range")
+    public ArrayList<String> atualizacaoLista(String seachQuery, AutoCompleteTextView textView){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nome FROM filmes WHERE nome LIKE ? AND disponivel != 0", new String[]{"%" + seachQuery + "%"});
+        ArrayList<String> names = new ArrayList<>();
+        while(cursor.moveToNext())
+            names.add(cursor.getString(cursor.getColumnIndex("nome")));
+        cursor.close();
+
+        return names;
+    }
+
     @SuppressLint("Recycle")
     public Pessoas buscarPessoa(String nomePessoa) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -39,7 +51,7 @@ public class DatabaseHelperLocacao {
              pessoa.setNome(String.valueOf(cursor.getColumnIndex("nome")));
              pessoa.setCpf(String.valueOf(cursor.getColumnIndex("cpf")));
              pessoa.setTelefone(String.valueOf(cursor.getColumnIndex("telefone")));
-             @SuppressLint("Range") String dataNasicmentoTxt = cursor.getString(cursor.getColumnIndex("data_nascimento"));]
+             @SuppressLint("Range") String dataNasicmentoTxt = cursor.getString(cursor.getColumnIndex("data_nascimento"));
              SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
              Date dataNascimento = null;
              try {
@@ -67,7 +79,6 @@ public class DatabaseHelperLocacao {
             @SuppressLint("Range") int disponivelInt = cursor.getInt(cursor.getColumnIndex("disponivel"));
             boolean disponivel = (disponivelInt == 1);
             filme.setDisponivel(disponivel);
-            filme.setValor(cursor.getColumnIndex("valor"));
         }
         return filme;
     }

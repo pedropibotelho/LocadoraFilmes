@@ -111,20 +111,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filmes_duracao" />
 
-        <EditText
-            android:id="@+id/edt_relatorio_filme_valor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="@string/fragment_filmes_valor"
-            android:inputType="number"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_relatorio_filmes_classificacao" />
-
         <Switch
             android:id="@+id/switch_filmes_relatorio_disponivel"
             android:layout_width="wrap_content"
@@ -135,7 +121,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_relatorio_filme_valor"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_relatorio_filmes_classificacao"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <Button

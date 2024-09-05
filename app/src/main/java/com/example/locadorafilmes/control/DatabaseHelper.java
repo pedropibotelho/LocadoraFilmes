@@ -24,7 +24,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "genero TEXT," +
                 "classificacao_indicativa TEXT," +
                 "duracao TEXT," +
-                "valor DOUBLE," +
                 "disponivel BOOLEAN)");
 
         //CRIAÇÃO DA TABELA DE PESSOAS
