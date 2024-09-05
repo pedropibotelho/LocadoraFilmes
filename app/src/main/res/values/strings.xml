@@ -42,7 +42,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     //FRAGMENT LOCACAO
-
+    <string name="fragment_locacao_title">Cadastro de Locação</string>
+    <string name="fragment_locacao_nome_pessoa">Nome Pessoa</string>
+    <string name="fragment_locacao_nome_filme">Nome Filme</string>
+    <string name="fragment_locacao_data_aluga">Data de Aluguel</string>
+    <string name="fragment_locacao_data_devolucao">Data Devolucao</string>
 
 
 </resources>
